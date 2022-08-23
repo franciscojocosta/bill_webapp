@@ -1,8 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
+import mysql.connector
 
 def index(request):
+    conn = mysql.connector.connect(
+    host="127.0.0.1",
+    database = "bills",
+    user="webapp",
+    password="123456")   
     
-    return HttpResponse("Hello world!")
+    try:
+        cursor = conn.cursor()
+        cursor.execute("select * from bills")
+        rows = cursor.fetchall()
+    finally:
+        conn.close()
+
+    return render('template.tmpl', {'obj': rows})
+    
 
 # Create your views here.

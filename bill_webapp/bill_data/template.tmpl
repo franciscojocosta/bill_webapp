@@ -1,0 +1,23 @@
+{% if obj %}
+<div style="padding-top: 30px" class="row">
+    <h3 align="center">Preview</h3>
+    <table style="border: 1px solid #dddddd;">
+         <thead>
+            <tr style="border: 1px solid;">
+                {% for h in hds %}
+                    <th style="border: 1px solid;">{{h}}</th>
+                {% endfor %}
+            </tr>
+         </thead>
+         <tbody style="border: 1px solid;">
+            {% for d in obj %}
+            <tr>
+              {% for word in obj %}
+              <td style="border: 1px solid;">{{ word }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+         </tbody>
+   </table>
+  </div>
+ {% endif %}
