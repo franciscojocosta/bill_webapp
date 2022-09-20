@@ -12,11 +12,13 @@ def index(request):
     try:
         cursor = conn.cursor()
         cursor.execute("select * from bills")
+
         rows = cursor.fetchall()
+      
     finally:
         conn.close()
 
-    return render('template.tmpl', {'obj': rows})
+    return render(request,'bill_data/table.html', {'obj': rows})
     
 
-# Create your views here.
+
