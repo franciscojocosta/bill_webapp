@@ -8,5 +8,8 @@ class bill_data(models.Model):
     bill_period = models.CharField(max_length=100)
     entity = models.CharField(max_length=30)
     reference = models.CharField(max_length=30)
-    limit_date = models.DateTimeField('limit date')
+    limit_date = models.DateField('limit date')
+
+    def __str__(self):
+        return self.bill_id
     
